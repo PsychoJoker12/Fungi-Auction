@@ -4,6 +4,30 @@ responds to its environment based on those adaptations
 """
 class Fungus(object):
     """A Fungus"""
+    adaptation_numbers = {
+        "spore_production" : 0,
+        "heat_tolerance" : 1,
+        "freeze_tolerance" : 2,
+        "mutualism" :3,
+        "haustoria" : 4,
+        "trapping_hyphae" : 5,
+        "antibiotics" : 6,
+        "ultra_hyphae" : 7,
+    }
+
+    @staticmethod
+    def adaptation_number(adaptation_str=None):
+        """
+        returns a number associated with a specific adaptation
+        returns -1 if adaptation is not recognized
+        """
+        if adaptation_str is None:
+            pass
+        else:
+            if adaptation_str not in Fungus.adaptation_numbers:
+                return -1
+            else:
+                return Fungus.adaptation_numbers[adaptation_str]
 
     def __init__(self, adaptation_list=None):
         self.base_growth_rate = 20
@@ -11,27 +35,27 @@ class Fungus(object):
         self.growth_modifier = 1
 
         self.adaptations = {
-            "spore_production" : False,
-            "heat_tolerance" : False,
-            "freeze_tolerance" : False,
-            "drought_tolerance" : False,
-            "mutualism" : False,
-            "haustoria" : False,
-            "trapping_hyphae" : False,
-            "antibiotics" : False,
-            "ultra_hyphae" : False
+            0 : False,
+            1 : False,
+            2 : False,
+            3 : False,
+            4 : False,
+            5 : False,
+            6 : False,
+            7 : False,
+            8 : False
         }
 
         if adaptation_list is not None:
-            for adaptation in adaptation_list:
-                self.add_adaptation(adaptation)
+            for number in adaptation_list:
+                self.add_adaptation(number)
 
-    def add_adaptation(self, adaptation):
+    def add_adaptation(self, number):
         """Add an adaptation to the fungus provided it is in the list of adaptations"""
-        if adaptation in self.adaptations:
-            self.adaptations[adaptation] = True
+        if number in self.adaptations:
+            self.adaptations[number] = True
         else:
-            print(str(adaptation) + "is not an adaptation available for this fungus")
+            print("adaptation number " + str(number) + " is not available for this fungus")
 
     def has_adaptation(self, adaptation):
         """return if the adaptation given applies to this fungus"""
