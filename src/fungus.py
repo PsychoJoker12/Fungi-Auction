@@ -31,3 +31,15 @@ class Fungus(object):
 
     def growth_rate(self):
         return self.growth_modifier*self.environment_modifier
+    
+    def update_environment(self, environment=reference.environments[9]):
+        self.growth_modifier = 1
+        for adaptation in self.adaptations:
+            self.growth_modifier *= adaptation.multiplier
+        self.environment_modifier = environment.multiplier
+
+        #High presure wind blasts
+        if environment == reference.environments[0]:
+            #Drought resistance
+            if reference.adaptations[3] in self.adaptations:
+                self.growth_modifier *= 2
