@@ -2,6 +2,8 @@
 A fungus object keeps track of growth rate and total growth
 and responds to its environment based on its adaptations
 """
+import reference
+
 class Fungus(object):
 
     def __init__(self, adaptation_list=None):
@@ -26,3 +28,6 @@ class Fungus(object):
     
     def add_adaptation(self, adaptation):
         self.adaptations.append(adaptation)
+
+    def growth_rate(self):
+        return self.growth_modifier*self.environment_modifier
