@@ -14,7 +14,7 @@ environments = [
     Environment(name="No notable changes", multiplier=1)
 ]
 
-spore_environments = environments
+spore_environments = list(environments[i] for i in [0,3,4,5,6,8])
 heat_environments = list(environments[i] for i in [2,3])
 freeze_environments = list(environments[i] for i in [0,1,2,4])
 drought_environments = list(environments[i] for i in [0,1,4,7])
