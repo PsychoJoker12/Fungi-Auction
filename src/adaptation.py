@@ -12,7 +12,7 @@ class Adaptation(object):
     def __str__(self):
         return self.name
 
-    def check_environment(self, environment=reference.environments[9]):
+    def check_environment(self, environment):
         if environment in self.suitable_environments:
             return self.multiplier
         else:

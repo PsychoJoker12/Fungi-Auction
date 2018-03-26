@@ -5,11 +5,11 @@ and responds to its environment based on its adaptations
 import reference
 
 class Fungus(object):
+    base_growth_rate = 20
 
     def __init__(self, adaptation_list=None):
-        self.base_growth_rate = 20
         self.environment_modifier = 1
-        self.growth_modifier = 1
+        self.adapt_rate = 1
 
         self.adaptations = []
 
@@ -30,16 +30,10 @@ class Fungus(object):
         self.adaptations.append(adaptation)
 
     def growth_rate(self):
-        return self.growth_modifier*self.environment_modifier
+        return Fungus.base_growth_rate*self.environment_modifier*self.adapt_rate
     
     def update_environment(self, environment=reference.environments[9]):
-        self.growth_modifier = 1
-        for adaptation in self.adaptations:
-            self.growth_modifier *= adaptation.multiplier
-        self.environment_modifier = environment.multiplier
+        self.adapt_rate = 1
 
-        #High presure wind blasts
-        if environment == reference.environments[0]:
-            #Drought resistance
-            if reference.adaptations[3] in self.adaptations:
-                self.growth_modifier *= 2
+        for adaptation in self.adaptations:
+            self.adapt_rate *= adaptation.check_environment(environment)
