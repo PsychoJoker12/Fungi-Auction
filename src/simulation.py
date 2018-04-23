@@ -1,4 +1,5 @@
 from random import choice
+from fungus import Fungus
 import reference
 
 class Simulation(object):
@@ -8,6 +9,7 @@ class Simulation(object):
     
     def update_environment(self):
         self.environment = choice(reference.environments)
+        Fungus.environment = self.environment
         for fungus in self.fungi:
             fungus.update_environment(self.environment)
     

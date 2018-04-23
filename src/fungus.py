@@ -6,6 +6,7 @@ import reference
 
 class Fungus(object):
     base_growth_rate = 20
+    environment = reference.environments[9]
 
     def __init__(self, adaptation_list=None):
         self.size = 0
@@ -19,7 +20,7 @@ class Fungus(object):
                 self.add_adaptation(adaptation)
     
     def __str__(self):
-        out = "Fungus with "
+        out = ""
         if len(self.adaptations) > 0:
             out += ", ".join([str(x) for x in self.adaptations])
         else:
@@ -29,8 +30,10 @@ class Fungus(object):
     
     def add_adaptation(self, adaptation):
         self.adaptations.append(adaptation)
+        self.update_environment(Fungus.environment)
 
     def growth_rate(self):
+        
         return Fungus.base_growth_rate*self.environment_modifier*self.adapt_modifier
     
     def update_environment(self, environment=reference.environments[9]):
@@ -41,4 +44,4 @@ class Fungus(object):
             self.adapt_modifier *= adaptation.check_environment(environment)
 
     def pass_time(self):
-        self.size += self.growth_rate()
+        self.size += int(self.growth_rate())

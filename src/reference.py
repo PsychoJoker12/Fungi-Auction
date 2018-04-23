@@ -26,12 +26,12 @@ ultra_branched_environments = list(environments[i] for i in [4,5])
 
 adaptations = [
     Adaptation("Vast spore production", 2, spore_environments),
-    Adaptation("Heat tolerant enzymes", 2, heat_environments),
-    Adaptation("Freeze tolerant basidiocarp", 2, freeze_environments),
-    Adaptation("Drought-resistant chitinous wall", 2, drought_environments),
+    Adaptation("Heat tolerance", 2, heat_environments),
+    Adaptation("Freeze tolerance", 2, freeze_environments),
+    Adaptation("Drought-resistance", 2, drought_environments),
     Adaptation("Mutualism with photosynthetic alga", 3, photosynthetic_environments),
     Adaptation("Haustoria Hyphae", 5, haustoria_environments),
     Adaptation("Trapping Hyphae", 5, trapping_environments),
-    Adaptation("Penicillin resistant antibiotics", 2, antibiotic_environments),
+    Adaptation("Penicillin resistance", 2, antibiotic_environments),
     Adaptation("Ultra-branched hyphae", 10, ultra_branched_environments)
 ]
