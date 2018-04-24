@@ -14,11 +14,6 @@ import reference
 
 simulation_environment = Simulation()
 
-fungus1_adaptations = list(reference.adaptations[i] for i in [2,4])
-
-simulation_environment.add_fungus(Fungus())
-simulation_environment.add_fungus(Fungus(fungus1_adaptations))
-
 def main():
     clear()
     display_fungi()
