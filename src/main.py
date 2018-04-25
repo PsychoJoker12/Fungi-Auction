@@ -99,7 +99,12 @@ def change_environment():
     print("Updated environment")
 
 def add_adaptation():
-    fungus_selection = int(input("Select a fungus:\n> "))
+    try:
+        fungus_selection = int(input("Select a fungus:\n> "))
+    except:
+        display_fungi()
+        print("Invalid input")
+        return
 
     if fungus_selection < 1 or fungus_selection > len(simulation_environment.fungi):
         display_fungi()
@@ -109,7 +114,13 @@ def add_adaptation():
         clear()
         for i in range(9):
             print("| ", i+1, " | ", reference.adaptations[i])
-        adaptation_selection = int(input("Select an adaptation:\n> "))
+        
+        try:
+            adaptation_selection = int(input("Select an adaptation:\n> "))
+        except:
+            display_fungi()
+            print("Invalid input")
+            return
         
         if adaptation_selection < 1 or adaptation_selection > 9:
             display_fungi()
