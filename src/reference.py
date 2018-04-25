@@ -7,8 +7,8 @@ environments = [
     Environment(name="Taiga, frozen water and arid conditions", multiplier=0.5),
     Environment(name="Bacterial bloom on soil surface", multiplier=0.5),
     Environment(name="Temerate New England fall (mid-September)", multiplier=0.5),
-    Environment(name="Invasive grass biomass (increased biomass, large rainfall)", multiplier=2),
-    Environment(name="Spring exponential growth of local rodent populations", multiplier=2),
+    Environment(name="Invasive grass biomass (increased biomass, large rainfall)", multiplier=1),
+    Environment(name="Spring exponential growth of local rodent populations", multiplier=1),
     Environment(name="Epic drought and desert succession", multiplier=0.5),
     Environment(name="Freshwater flood", multiplier=0.5),
     Environment(name="No notable changes", multiplier=1)
